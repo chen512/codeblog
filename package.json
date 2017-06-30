@@ -1,0 +1,27 @@
+{
+  "name": "chenzhou",
+  "version": "1.0.0",
+  "description": "show the new coding",
+  "main": "index.js",
+  "scripts": {
+    "test": "run dev"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/chen512/codeblog.git"
+  },
+  "keywords": [
+    "vue",
+    "webpack",
+    "es6",
+    "node",
+    "express",
+    "mongodb"
+  ],
+  "author": "chenzhou",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/chen512/codeblog/issues"
+  },
+  "homepage": "https://github.com/chen512/codeblog#readme"
+}

@@ -51,7 +51,7 @@ app.post('/post',function(req,res){
     })
 });
 //定义get请求的接口 获取数据
-app.post('/api/login',function(req,res){
+app.post('/get',function(req,res){
     console.log("11111111"+req.body.msg);
     var username=req.body.msg || 'dd';
     //首先得从库里拿到数据

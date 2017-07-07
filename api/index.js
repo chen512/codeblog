@@ -22,10 +22,10 @@ app.all('*', function(req, res, next) {
     next();
 })
 
-//定义get请求的接口 获取数据
+//定义接口 获取数据
 app.post('/api/login',function(req,res){
-    console.log("1111ddddd1111"+req.body.password+req.body.username+req.body[0]);
-    var username=req.body.msg || req.body||'dd';
+    console.log("sssss"+req.body.username);
+    var username=req.body.username || 'dd';
     //首先得从库里拿到数据
     var selectData=function(db,callback){
         //连接到数据文档

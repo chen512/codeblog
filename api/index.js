@@ -4,7 +4,7 @@
 //配置mongodb数据库相关的内容
 var mongodb=require('mongodb');
 var MongoClient=mongodb.MongoClient;
-var DB_CONN_STR='mongodb://localhost:27017/foobar';
+var DB_CONN_STR='mongodb://localhost:27017/chenzhouDB';//创建数据库，没有的话会自动创建
 
 //配置node服务器相关内容：
 var express=require('express');
@@ -24,14 +24,14 @@ app.all('*', function(req, res, next) {
 
 //定义接口 获取数据
 app.post('/api/login',function(req,res){
-    console.log("sssss"+req.body.username);
-    var username=req.body.username || 'dd';
+    console.log("sssss"+req.body.email);
+    var email=req.body.email || 'dd';
     //首先得从库里拿到数据
     var selectData=function(db,callback){
         //连接到数据文档
-        var collection=db.collection('persons');
+        var collection=db.collection('personMatt');
         //查询数据
-        var whereStr={"username":username};  //我们要查询的信息是所有包含这个内容的数据。
+        var whereStr={"email":email};  //我们要查询的信息是所有包含这个内容的数据。
         collection.find(whereStr).toArray(function(err,result){
             if(err){
                 console.log('Error:'+err);
@@ -54,6 +54,35 @@ app.post('/api/login',function(req,res){
         })
     })
 
+});
+//定义post请求的接口 向数据表插入数据
+app.post('/api/register',function(req,res){
+    // var username=req.body.username;
+    // var password=req.body.password;
+    // console.log(username);
+    console.log(req.body.password);
+   // var data=[{"username":username,"password":password}];
+    var data=[req.body];
+    //拿到数据后追加到数据库中
+    var insertData= function(db,callback){
+        //连接到数据文档 建立persons并且插入数据
+        var collection=db.collection('personMatt');
+        console.log(collection + '文档链接');
+        collection.insert(data,function(err,result){
+            if(err){
+                console.log("Error"+err);
+                return;
+            }
+            console.log(result);
+        })
+    }
+    MongoClient.connect(DB_CONN_STR,function(err,db){
+        console.log("连接成功--插入成功");
+        insertData(db,function(result){
+            console.log(result + 'ok');
+            db.close();
+        })
+    })
 });
 //配置服务器端口
 var server = app.listen(3000, function () {

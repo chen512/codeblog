@@ -36,7 +36,7 @@
 		methods: {
 			send_login() {
 			this.$http.post('/api/login',this.user,{emulateJSON : true}).then((respone) => {
-						if(respone.body == 'fail') {
+						if(respone.body == 'fail' || respone.body.length == 0) {
 							alert('请输入正确的邮箱和密码');
 						}	else {
 						    console.log(respone)

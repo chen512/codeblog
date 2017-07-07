@@ -75,7 +75,7 @@
 				if(this.user.password != this.user.password_repeat) {
 					return false;
 				};
-				this.$http.post('/api/register',this.user)
+				this.$http.post('/api/register',this.user,{emulateJSON : true})
 					.then((respone) => {
 						if(respone.body == 'fail') {
 							alert('该邮箱已被使用');

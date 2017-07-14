@@ -2,6 +2,7 @@ import Vue from 'vue';
 import Router from 'vue-router';
 import login from '../components/login.vue';
 import register from '../components/register.vue';
+import home from '../components/home.vue';
 
 //通过 Vue.use() 明确地安装路由
 Vue.use(Router);
@@ -21,5 +22,9 @@ export default new Router({
     path: '/register',
     name: 'register',
     component: register
- }]
+ },{
+  path: '/home',
+  name: 'home',
+  component: home
+}]
 })

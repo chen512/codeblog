@@ -79,7 +79,6 @@ video {
 }
 
 body {
-  line-height: 1;
 }
 
 :focus {
@@ -186,6 +185,7 @@ html {
 
 html,body{
   background-color: #f3f3f4;
+  overflow: hidden;
 }
 
 .clearfix:after {

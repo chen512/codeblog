@@ -41,7 +41,7 @@
 						}	else {
 						    console.log(respone)
 							//this.$store.commit('SET_CURUSER',respone.body[0]);
-							this.$router.push({path:'/register',  query: {password: "SHd89c7e3829"}});
+							this.$router.push({path:'/home',  query: {password: "SHd89c7e3829"}});
 						}
 					})
 					.catch((error) => {

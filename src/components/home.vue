@@ -31,11 +31,11 @@
 			</div>
 			<div class="achievement">
 				<div class="item">
-					<p class="num loanCount">--</p>
+					<p class="num loanCount">{{home.count}}</p>
 					<p class="txt">放款件数</p>
 				</div>
 				<div class="item">
-					<p class="num loanamt">--</p>
+					<p class="num loanamt">{{home.money}}</p>
 					<p class="txt">放款金额(元)</p>
 				</div>
 			</div>
@@ -72,6 +72,10 @@
 		name: 'home',
 		data() {
 			return {
+			    home:{
+			    count:0,
+			    money:0
+			    },
 				content:123
 			}
 		},
@@ -84,6 +88,18 @@
              this.$emit("show_list");
 			}
 		},
+		created() {
+
+		    this.$http.get('/api/home').then((response) => {
+		    if(response.body.resultCode == "0") {
+            this.home.count=response.body.count;
+            this.home.money=response.body.money;
+            } else {
+            alert('系统异常')
+            }
+
+        });
+      },
 		components: {
          'v-header': header
     }

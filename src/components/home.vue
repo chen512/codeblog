@@ -84,11 +84,13 @@
 			  //我想在这里得到参数,会报下面这个错误
 		  },
 		methods: {
-			show_list() {
+			show_list(e) {
+			 e.preventDefault();
              this.$emit("show_list");
 			}
 		},
 		created() {
+
 
 		    this.$http.get('/api/home').then((response) => {
 		    if(response.body.resultCode == "0") {

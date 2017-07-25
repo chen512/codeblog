@@ -87,8 +87,14 @@ app.post('/api/register',function(req,res){
 app.get('/api/home', function (req, res) {
     var result = require('../data/home.json');
     res.json(result);
-
-
+});
+app.get('/api/addCustomer', function (req, res) {
+    var result = require('../data/addCustomer.json');
+    res.json(result);
+});
+app.get('/api/willCustomer', function (req, res) {
+    var result = require('../data/addCustomer.json');
+    res.json(result);
 });
 //配置服务器端口
 var server = app.listen(3000, function () {

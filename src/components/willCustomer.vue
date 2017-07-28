@@ -54,10 +54,12 @@
                 x = event.changedTouches[0].pageX;
                 y = event.changedTouches[0].pageY;
             });
-			$body.addEventListener('touchmove', function(e){
-			let box = document.getElementsByClassName('draft-box')[0];
+            let box = document.getElementsByClassName('draft-box')[0];
 			let info = document.getElementsByClassName('info')[0];
-			console.log(e.changedTouches[0].clientX)
+
+			box.addEventListener('click', function(e){alert(123)});
+			$body.addEventListener('touchmove', function(e){
+					console.log(e.changedTouches[0].clientX)
 			 //pos.x += target.offsetLeft;
              //pos.y += target.offsetTop;
              console.log(box.offsetLeft+'----'+box.offsetRight)
@@ -209,6 +211,8 @@
                 }
             }
         }
+
     }
+
 
 </style>

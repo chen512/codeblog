@@ -5,7 +5,7 @@ import Vue from 'vue';
 import App from './App';
 import router from './router';
 import vueResource from 'vue-resource';
-import flex from './common/flexible';
+//import flex from './common/flexible';
 Vue.use(vueResource);
 new Vue({
     el: '#app',

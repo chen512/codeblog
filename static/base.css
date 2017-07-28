@@ -184,7 +184,7 @@ html {
 
 html,body{
   background-color: #f3f3f4;
-  overflow: hidden;
+  /*overflow: hidden;*/
 }
 
 .clearfix:after {
@@ -216,9 +216,33 @@ html,body{
 }
 
 .clearfix:before{
-  content: '',
+  content: '';
   height: 0;
   visibility: hidden;
   overflow: hidden;
   display: block;
+}
+.pr7{
+  padding-right: 1.7rem !important;
+}
+.in-bl{
+  display: inline-block;
+}
+.box{
+  display: -webkit-box;
+}
+.m1{
+  margin: 1rem;
+}
+.bb1{
+  border-bottom: 1px #ebebeb solid;
+}
+.m{
+  text-align: right;
+  right: 2rem;
+  position: absolute;
+  outline:none;
+}
+.h2{
+  height: 2rem;
 }

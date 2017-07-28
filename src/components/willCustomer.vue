@@ -9,7 +9,7 @@
             <div class="info">
                 <div class="jsOpen" style="transition: -webkit-transform 500ms cubic-bezier(0.1, 0.57, 0.1, 1); transform: translate(0px, 0px) translateZ(0px);">
                     <div class="cir-chart">
-                        <div class="dwb">
+                        <div class="dwb d">
                             <div class="circleprogress">
                                 <svg width="80px" height="80px">
                                     <circle cx="40" cy="40" r="25" stroke-width="7" stroke="#ebeaea" fill="none"></circle>

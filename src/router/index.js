@@ -5,6 +5,8 @@ import register from '../components/register.vue';
 import home from '../components/home.vue';
 import addCustomer from '../components/addCustomer.vue';
 import willCustomer from '../components/willCustomer.vue';
+import draftbox from '../components/draftbox.vue';
+import progress from '../components/progress.vue';
 
 //通过 Vue.use() 明确地安装路由
 Vue.use(Router);
@@ -36,5 +38,13 @@ export default new Router({
     path: '/willCustomer',
     name: 'willCustomer',
     component: willCustomer
+    }, {
+    path: '/draftbox',
+    name: 'draftbox',
+    component: draftbox
+    }, {
+    path: '/progress',
+    name: 'progress',
+    component: progress
     }]
     })

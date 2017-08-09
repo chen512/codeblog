@@ -1,29 +1,19 @@
 <template>
-	<section class="addCustomer">
-		<ul class="add" @click="tablist">
-            <li class="active">我的客户</li>
-            <li>被推荐意向客户</li>
-        </ul>
-        <div id="intInfo" class="intInfo" style="border-bottom: solid 1rem #f3f3f3" v-for="item in items">
+	<section class="draftbox">
+        <div id="intInfo" style="border-bottom: solid 1px #f3f3f3">
             <!--我的客户"-->
             <div class="info">
                 <div class="jsOpen" style="transition: -webkit-transform 500ms cubic-bezier(0.1, 0.57, 0.1, 1); transform: translate(0px, 0px) translateZ(0px);">
-                    <div class="cir-chart">
+                    <div class="cir-chart lh bb1">
                         <div class="dwb">
                             <div class="circleprogress">
-                                <svg width="80px" height="80px">
-                                    <circle cx="40" cy="40" r="25" stroke-width="7" stroke="#ebeaea" fill="none"></circle>
-                                    <circle cx="40" cy="40" r="25" stroke-width="7" stroke="#ffba00" fill="none" stroke-dasharray="150 659" id="rank-percent"></circle>
-                                </svg>
                                 <div class="box-vam"><span class="num">90%</span></div>
                             </div>
-                            <div class="num-inte"><span class="finish_percent">完整度90%</span></div>
                         </div>
                         <div class="dd time">2017.07.10</div>
                     </div>
-                    <div class="px"></div>
-                    <div class="merge-top"><div class="dt">刘开心</div><div class="dd">18566660001<div class="i-tel i-tel-spr"></div></div></div>
-                    <div class="merge-bot line"><div class="dt">计划贷款金额（元）</div><div class="dd">{{item.loan}}</div></div>
+                    <div class="merge-top lh bb1"><div class="dt">刘开心</div><div class="dd">18566660001<div class="i-tel i-tel-spr"></div></div></div>
+                    <div class="merge-bot line lh bb1"><div class="dt">计划贷款金额（元）</div><div class="dd">50000</div></div>
                 </div>
                 <div class="draft-box">
                     <div class="draft-btn draft-cancel">删除</div>
@@ -34,23 +24,17 @@
 </template>
 <script>
 	export default {
-			name: "addCustomer",
+			name: "drafbox",
 			data(){
 			return {
-			items:[{loan:100},{loan:1000},{loan:99999}]
 			}
 			},
 			methods: {
-               tablist: function(e){
-               e.target.setAttribute("class", 'active');
-               Array.prototype.slice.call(e.currentTarget.children).indexOf(e.target) == '1' ? e.currentTarget.children[0].removeAttribute("class", 'active') &&  e.target.setAttribute("class", 'active') : e.currentTarget.children[1].removeAttribute("class", 'active') && e.target.setAttribute("class", 'active');
-               //e.target.style.color = 'black';
 
-               }
 			},
 			mounted(){
 
-			let $body = document.getElementsByClassName('intInfo')[0];
+			let $body = document.getElementsByClassName('draftbox')[0];
 			  var x, y, X, Y, swipeX, swipeY;
             $body.addEventListener('touchstart', function(event) {
                 x = event.changedTouches[0].pageX;
@@ -58,6 +42,7 @@
             });
             let box = document.getElementsByClassName('draft-box')[0];
 			let info = document.getElementsByClassName('info')[0];
+
 			box.addEventListener('click', function(e){alert(123)});
 			$body.addEventListener('touchmove', function(e){
 					console.log(e.changedTouches[0].clientX)
@@ -84,39 +69,12 @@
 	}
 </script>
 <style lang="scss" scoped>
-	.add{
-        display: -webkit-box;
-        height: 1.09rem;
-        text-align: center;
-        background-color: #fff;
-        position: -webkit-sticky;
-        width: 100%;
-        z-index: 5;
-        top: 0;
-        line-height: 3rem;
-        height:3rem;
-        li{
-            -webkit-box-flex: 1;
-            width: 100%;
-            height: 2.69rem;
-            line-height: 2.8rem;
-            border-bottom: 1px solid #c8c7cc;
-            font-size: 0.34rem;
-            position: relative;
-            padding-bottom: 2px;
-            z-index: 2;
-            height: 2.8rem;
-        }
-        li.active{
-            color: #ff6900;
-            border-bottom: 3px solid #ff6900;
-            padding: 0;
-        }
-    }
     #intInfo{
         position: relative;
         z-index: 3;
         background: #fff;
+        font-size: 0.3rem;
+        color: #333;
         .info{
             .jsOpen{
                 position: relative;
@@ -126,27 +84,32 @@
                 transform: translate(-105.594px, 0px) translateZ(0px);
                 .cir-chart{
                     margin: 0 .2rem 0 0;
-                    width: 80px;
-                    height: 80px;
                     text-align: center;
                     font-size: .3rem;
                     position: relative;
                     display: -webkit-box;
                     .time{
-                        margin-left: 8rem;
                         margin-top: 2rem;
+                        text-align: right;
+                        margin-left: 15rem;
                     }
                     .dwb{
                         display: -webkit-box!important;
 
                         .circleprogress{
                             margin: 0 .2rem 0 0;
-                            width: 80px;
-                            height: 80px;
+                            width: 40px;
+                            height: 40px;
                             text-align: center;
                             color: #ffba00;
                             font-size: .3rem;
-                            position: relative;
+                            position: absolute;
+                            top: 0;
+                            left: 0.3rem;
+                            overflow: hidden;
+                            line-height: 0.3rem;
+                            background: url(../../static/img/icon-complete.png) no-repeat;
+                            background-size: 100% auto;
                             .box-vam{
                                 width: 100%;
                                 position: absolute;
@@ -160,10 +123,6 @@
                             }
 
                         }
-                        .num-inte{
-                            margin-top: 2rem;
-                            color: #ff6900
-                        }
 
                     }
                 }
@@ -171,8 +130,6 @@
                     display: -webkit-box;
                     line-height: 3rem;
                     padding-left: 1rem;
-                    font-size: 0.3rem;
-                    color: #ccc;
                     .dd{
                         margin-left:11rem;
                     }
@@ -181,8 +138,6 @@
                     display: -webkit-box;
                     line-height: 3rem;
                     padding-left: 1rem;
-                    font-size: 0.3rem;
-                    color: #ccc;
                     .dd{
                         margin-left:8rem;
                     }
@@ -191,7 +146,7 @@
                     line-height: 1px;
                     height:1px;
                     background: #c8c7cc;
-                    margin: 0 1rem;
+                    margin-left: 1rem;
                 }
 
 

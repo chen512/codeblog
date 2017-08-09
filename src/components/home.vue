@@ -6,11 +6,11 @@
 	<section>
 		<v-header></v-header>
 	    <div class="referee-home item-flex">
-		<div class="item">
+		<div class="item" @click="show_list()">
 			<div class="icon-pagehome icon-draftBox-small"></div>
 			<p>草稿箱</p>
 		</div>
-		<div class="item">
+		<div class="item" v-on:click="progress()">
 			<div class="icon-pagehome icon-progress-small"></div>
 			<p>进度件</p>
 		</div>
@@ -80,27 +80,26 @@
 			}
 		},
 	    mounted(){
-	   // this.content = 456;
 			  //我想在这里得到参数,会报下面这个错误
+        		//	this.$nextTick(()=>{alert(1);});
+
 		  },
+
 		methods: {
+
 			show_list(e) {
-			 e.preventDefault();
+			this.$router.push('draftbox');
              this.$emit("show_list");
+
+			},
+			progress(){
+			this.$router.push('progress');
 			}
+
 		},
 		created() {
-
-
-		    this.$http.get('/api/home').then((response) => {
-		    if(response.body.resultCode == "0") {
-            this.home.count=response.body.count;
-            this.home.money=response.body.money;
-            } else {
-            alert('系统异常')
-            }
-
-        });
+		this.home.money = 10;
+		//this.$nextTick(()=>{this.home.money = 4;})
       },
 		components: {
          'v-header': header

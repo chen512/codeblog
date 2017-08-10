@@ -2,6 +2,6 @@
 
 采用vue ＋ es6 ＋ scss 高仿揽客app
 
-
+![Image text](./static/img/home.png)
 
 
